@@ -34,7 +34,7 @@ public class RockMov : MonoBehaviour
             //InvokeRepeating("Fall", wait, wait);
         }
 
-        else if(timer.time >= 7f && CurrentWait > 0.7f)
+        else if(timer.time >= 7f && currentWait > 0.7f)
         {
             ChangeSpeed(0.7f);
             //wait = 0.7f;
