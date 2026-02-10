@@ -34,7 +34,7 @@ public class PlayerMovements : MonoBehaviour
         if(collision.gameObject.CompareTag("Object"))
         {
             // Stop the spawner safely
-            RockMov spawner = FindFirstObjectByType<RockMov?();
+            RockMov spawner = FindFirstObjectByType<RockMov>();
             if(spawner != null) spawner.CancelInvoke("Fall");
 
             FindFirstObjectByType<StopWatch>().Stop();
