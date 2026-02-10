@@ -29,11 +29,20 @@ public class PlayerMovements : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Player hit by: " + collision.gameObject.name);
+        
         if(collision.gameObject.CompareTag("Object"))
         {
-            FindFirstObjectByType<RockMov>().CancelInvoke("Fall");
+            // Stop the spawner safely
+            RockMov spawner = FindFirstObjectByType<RockMov?();
+            if(spawner != null) spawner.CancelInvoke("Fall");
+
             FindFirstObjectByType<StopWatch>().Stop();
             Destroy(this.gameObject);
+
+            //FindFirstObjectByType<RockMov>().CancelInvoke("Fall");
+            //FindFirstObjectByType<StopWatch>().Stop();
+            //Destroy(this.gameObject);
         }
     }
 }
