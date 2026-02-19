@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovements : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class PlayerMovements : MonoBehaviour
             body.linearVelocity = new Vector2(body.linearVelocity.x, speed);
         
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Player hit by: " + collision.gameObject.name);
         
@@ -39,6 +40,7 @@ public class PlayerMovements : MonoBehaviour
 
             FindFirstObjectByType<StopWatch>().Stop();
             Destroy(this.gameObject);
+            SceneManager.LoadScene("GameOver");
 
             //FindFirstObjectByType<RockMov>().CancelInvoke("Fall");
             //FindFirstObjectByType<StopWatch>().Stop();
