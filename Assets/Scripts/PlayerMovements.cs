@@ -10,6 +10,9 @@ public class PlayerMovements : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+
+        GameSettings.Load();
+        speed = GameSettings.PlayerSpeed;
     }
 
     void Update()
