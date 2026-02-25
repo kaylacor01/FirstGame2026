@@ -5,6 +5,10 @@ public class PlayerMovements : MonoBehaviour
 {
 
     [SerializeField] private float speed;
+
+    //for running animation
+    [SerializeField] private Animator animator;
+
     private Rigidbody2D body;
  
     void Start()
@@ -27,10 +31,22 @@ public class PlayerMovements : MonoBehaviour
         else if (horizontalInput < -0.01f)
             transform.localScale = new Vector3(-0.45f, 0.45f, 1f);
 
+        //Jump 
          if (Input.GetKey(KeyCode.Space))
             body.linearVelocity = new Vector2(body.linearVelocity.x, speed);
         
+
+        //Run
+        if (horizontalInput != 0) {
+            animator.SetBool("isRunning", true);
+        }
+        else {
+            animator.SetBool("isRunning", false);
+
+        }
     }
+
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Player hit by: " + collision.gameObject.name);
