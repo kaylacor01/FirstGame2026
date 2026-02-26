@@ -23,4 +23,8 @@ public class MainMenuController : MonoBehaviour
     {
         Application.Quit(); // Works in build, not in editor
     }
-}
+
+//     public void ResumeGame() {
+//         SceneManager.
+//     }
+    }
